@@ -20,3 +20,7 @@ const thoughtsSchema = new Schema({
         type: Array[docs],
     },
 });
+
+const Thought = model('thought', thoughtsSchema);
+
+module.exports = Thought;
