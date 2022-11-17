@@ -21,3 +21,7 @@ const userSchema = new Schema({
         type: Array[_id]
     }
 });
+
+const User = model('user', userSchema);
+
+module.exports = User;
