@@ -2,7 +2,7 @@ const { Thoughts } = require('../models');
 
 const thoughtsController = {
 
-    createThoughts({params, body}, res) {
+    createNewThought({params, body}, res) {
 
     },
 
@@ -11,7 +11,7 @@ const thoughtsController = {
     },
 
     getThoughtsByID({params}, res) {
-        
+
     }
 
 };
