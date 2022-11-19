@@ -1,4 +1,6 @@
 const { Schema, model } = require('mongoose');
+const Reaction = require('./Reaction');
+const moment = require('moment');
 
 const thoughtsSchema = new Schema({
     thoughtText:{
@@ -9,18 +11,16 @@ const thoughtsSchema = new Schema({
     },
     createdAt: {
         type: Date,
-        //set default
-        //getter to format on query
+        default: Date.now,
+        get: (createdAt) => moment(createdAt).format('MM DD, YYYY [at] hh:mm a'),
     },
     username: {
         type: String,
         required: true,
     },
-    reactions: {
-        type: Array[docs],
-    },
+    reactions: [Reaction],
 });
 
-const Thought = model('thought', thoughtsSchema);
+const Thoughts = model('thought', thoughtsSchema);
 
-module.exports = Thought;
+module.exports = Thoughts;
