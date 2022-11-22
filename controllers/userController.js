@@ -14,6 +14,22 @@ const userController = {
 
     },
 
+    updateUserByID() {
+
+    },
+
+    deleteUserByID() {
+
+    },
+
+    addNewFriend() {
+
+    },
+
+    deleteFriend() {
+
+    },
+
 };
 
 module.exports = userController;

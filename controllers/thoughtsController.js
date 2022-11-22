@@ -12,6 +12,22 @@ const thoughtsController = {
 
     getThoughtsByID({params}, res) {
 
+    },
+
+    updateThoughtByID() {
+
+    },
+
+    deleteThoughtByID() {
+
+    },
+
+    createNewReaction() {
+
+    },
+
+    deleteReaction() {
+        
     }
 
 };
