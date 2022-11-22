@@ -14,20 +14,20 @@ const thoughtsController = {
 
     },
 
-    updateThoughtByID() {
+    updateThoughtByID({params, body}, res) {
 
     },
 
-    deleteThoughtByID() {
+    deleteThoughtByID({params}, res) {
 
     },
 
-    createNewReaction() {
+    createNewReaction({params, body}, res) {
 
     },
 
-    deleteReaction() {
-        
+    deleteReaction({params}, res) {
+
     }
 
 };

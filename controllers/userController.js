@@ -14,19 +14,19 @@ const userController = {
 
     },
 
-    updateUserByID() {
+    updateUserByID({params}, res) {
 
     },
 
-    deleteUserByID() {
+    deleteUserByID({params}, res) {
 
     },
 
-    addNewFriend() {
+    addNewFriend({params}, res) {
 
     },
 
-    deleteFriend() {
+    deleteFriend({params}, res) {
 
     },
 
