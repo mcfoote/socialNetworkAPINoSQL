@@ -1,8 +1,7 @@
 const { Schema, model } = require('mongoose');
-const Reaction = require('./Reaction');
 const moment = require('moment');
 
-const thoughtsSchema = new Schema({
+const thoughtSchema = new Schema({
     thoughtText:{
         type: String,
         required: true,
@@ -18,7 +17,7 @@ const thoughtsSchema = new Schema({
         type: String,
         required: true,
     },
-    reactions: [Reaction],
+    reactions: [reactionSchema],
 });
 
 const reactionSchema = new Schema({
@@ -44,6 +43,6 @@ const reactionSchema = new Schema({
 
 });
 
-const Thoughts = model('thought', thoughtsSchema);
+const Thought = model('thought', thoughtSchema);
 
-module.exports = Thoughts;
+module.exports = Thought;
