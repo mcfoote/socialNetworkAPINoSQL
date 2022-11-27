@@ -7,11 +7,11 @@ const thoughtsController = {
         Thought.create(body)
         .then(({_id}) => {
             return User.findOneAndUpdate({ _id: params.userId}, {$push: {thoughts: _id}}, {new: true});
-        }).then(dbThoughtsData => {
-            if(!dbThoughtsData) {
+        }).then(thoughtsDB => {
+            if(!thoughtsDB) {
                 res.status(404).json({message: 'Cannot find thoughts with matching ID'});
                 return;
-            }res.json(dbThoughtsData)
+            }res.json(thoughtsDB)
         }).catch(err => res.status(400).json(err));
 
     },
@@ -21,7 +21,7 @@ const thoughtsController = {
         Thought.find({})
         .populate({path: 'reactions', select: '-__v'})
         .select('-__v')
-        .then(dbThoughtsData => res.json(dbThoughtsData))
+        .then(thoughtsDB => res.json(thoughtsDB))
         .catch(err => {
             console.log(err);
             res.status(400).json(err);
@@ -34,11 +34,11 @@ const thoughtsController = {
         Thought.findOne({ _id: params.id })
         .populate({path: 'reactions',select: '-__v'})
         .select('-__v')
-        .then(dbThoughtsData => {
-            if(!dbThoughtsData) {
+        .then(thoughtsDB => {
+            if(!thoughtsDB) {
             res.status(404).json({message: 'Cannot find thoughts with matching ID'});
             return;
-        }res.json(dbThoughtsData)
+        }res.json(thoughtsDB)
         }).catch(err => {
             console.log(err);
             res.sendStatus(400);
