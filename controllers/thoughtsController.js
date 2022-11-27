@@ -9,9 +9,9 @@ const thoughtsController = {
             return User.findOneAndUpdate({ _id: params.userId}, {$push: {thoughts: _id}}, {new: true});
         }).then(thoughtsDB => {
             if(!thoughtsDB) {
-                res.status(404).json({message: 'Cannot find thoughts with matching ID'});
+                res.status(404).json({message: 'Cannot find thought with matching ID'});
                 return;
-            }res.json(thoughtsDB)
+            }res.json(thoughtsDB);
         }).catch(err => res.status(400).json(err));
 
     },
@@ -33,11 +33,10 @@ const thoughtsController = {
         .select('-__v')
         .then(thoughtsDB => {
             if(!thoughtsDB) {
-            res.status(404).json({message: 'Cannot find thoughts with matching ID'});
-            return;
-        }res.json(thoughtsDB)
+                res.status(404).json({message: 'Cannot find thought with matching ID'});
+                return;
+            }res.json(thoughtsDB);
         }).catch(err => res.status(400).json(err));
-
 
     },
 
@@ -48,11 +47,10 @@ const thoughtsController = {
         .select('-___v')
         .then(thoughtsDB => {
             if (!thoughtsDB) {
-                res.status(404).json({message: 'Cannot find thoughts with matching ID'});
+                res.status(404).json({message: 'Cannot find thought with matching ID'});
                 return;
             }res.json(thoughtsDB);
         }).catch(err => res.status(400).json(err));
-
 
     },
 
@@ -61,7 +59,7 @@ const thoughtsController = {
         Thought.findOneAndDelete({_id: params.id})
         .then(thoughtsDB => {
             if (!thoughtsDB) {
-                res.status(404).json({message: 'Cannot find thoughts with matching ID'});
+                res.status(404).json({message: 'Cannot find thought with matching ID'});
                 return;
             }res.json(thoughtsDB);
         }).catch(err => res.status(400).json(err));
@@ -74,10 +72,10 @@ const thoughtsController = {
         .populate({path: 'reactions', select: '-__v'})
         .select('-__v')
         .then(thoughtsDB => {
-        if (!thoughtsDB) {
-            res.status(404).json({message: 'Cannot find thoughts with matching ID'});
-            return;
-        }res.json(thoughtsDB);
+            if (!thoughtsDB) {
+                res.status(404).json({message: 'Cannot find reaction with matching ID'});
+                return;
+            }res.json(thoughtsDB);
         }).catch(err => res.status(400).json(err));
 
     },
@@ -87,7 +85,7 @@ const thoughtsController = {
         Thought.findOneAndUpdate({_id: params.thoughtId}, {$pull: {reactions: {reactionId: params.reactionId}}}, {new : true})
         .then(thoughtsDB => {
             if (!thoughtsDB) {
-                res.status(404).json({message: 'Cannot find thoughts with matching ID'});
+                res.status(404).json({message: 'Cannot find reaction with matching ID'});
                 return;
             }res.json(thoughtsDB);
         }).catch(err => res.status(400).json(err));

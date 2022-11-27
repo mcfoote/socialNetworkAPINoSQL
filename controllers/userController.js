@@ -31,7 +31,7 @@ const userController = {
             if(!userDB) {
                 res.status(404).json({message:'Cannot find user with matching ID'});
                 return; 
-            }res.json(userDB)
+            }res.json(userDB);
         }).catch(err => res.status(400).json(err));
 
     },
