@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const express = require('express');
 const db = require('./config/connection');
 const PORT = process.nextTick.PORT || 3001;

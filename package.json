@@ -1,0 +1,24 @@
+{
+  "name": "socialnetworkapinosql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcfoote/socialNetworkAPINoSQL.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcfoote/socialNetworkAPINoSQL/issues"
+  },
+  "homepage": "https://github.com/mcfoote/socialNetworkAPINoSQL#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "moment": "^2.29.4",
+    "mongoose": "^6.7.3"
+  }
+}
