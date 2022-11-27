@@ -22,10 +22,7 @@ const thoughtsController = {
         .populate({path: 'reactions', select: '-__v'})
         .select('-__v')
         .then(thoughtsDB => res.json(thoughtsDB))
-        .catch(err => {
-            console.log(err);
-            res.status(400).json(err);
-        });
+        .catch(err => res.status(400).json(err));
 
     },
 
@@ -39,10 +36,8 @@ const thoughtsController = {
             res.status(404).json({message: 'Cannot find thoughts with matching ID'});
             return;
         }res.json(thoughtsDB)
-        }).catch(err => {
-            console.log(err);
-            res.sendStatus(400);
-        });
+        }).catch(err => res.status(400).json(err));
+
 
     },
 
@@ -56,7 +51,8 @@ const thoughtsController = {
                 res.status(404).json({message: 'Cannot find thoughts with matching ID'});
                 return;
             }res.json(dbThoughtsData);
-        }).catch(err => res.json(err));
+        }).catch(err => res.status(400).json(err));
+
 
     },
 

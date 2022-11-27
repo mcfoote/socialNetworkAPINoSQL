@@ -17,10 +17,7 @@ const userController = {
         .populate({path:'friends', select:'-__v'})
         .select('-__v')
         .then(userDB => res.json(userDB))
-        .catch(err => {
-            console.log(err);
-            res.status(400).json(err);
-        });
+        .catch(err => res.status(400).json(err));
 
     },
 
@@ -35,10 +32,7 @@ const userController = {
                 res.status(404).json({message:'Cannot find user with matching ID'});
                 return; 
             }res.json(userDB)
-        }).catch(err => {
-            console.log(err);
-            res.status(400).json(err);
-        });
+        }).catch(err => res.status(400).json(err));
 
     },
 
@@ -50,8 +44,7 @@ const userController = {
                 res.status(404).json({message: 'Cannot find user with matching ID'});
                 return;
             }res.json(userDB);
-        }).catch(err => res.json(err));
-
+        }).catch(err => res.status(400).json(err));
     },
 
     deleteUserByID({params}, res) {
@@ -76,7 +69,7 @@ const userController = {
                 res.status(404).json({message: 'Cannot find user with matching ID'});
                 return;
             }res.json(userDB);
-        }).catch(err => res.json(err));
+        }).catch(err => res.status(400).json(err));
 
     },
 
