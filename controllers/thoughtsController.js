@@ -75,7 +75,7 @@ const thoughtsController = {
         .select('-__v')
         .then(thoughtsDB => {
         if (!thoughtsDB) {
-            res.status(404).json({message: 'No thoughts with this particular ID!'});
+            res.status(404).json({message: 'Cannot find thoughts with matching ID'});
             return;
         }res.json(thoughtsDB);
         }).catch(err => res.status(400).json(err));
