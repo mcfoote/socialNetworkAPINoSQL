@@ -20,6 +20,13 @@ const thoughtSchema = new Schema({
     },
     reactions: [reactionSchema],
     
+},
+{
+    toJSON: {
+        getters: true,
+        virtuals: true,
+    },
+    id: false
 });
 
 const reactionSchema = new Schema({
@@ -43,6 +50,11 @@ const reactionSchema = new Schema({
         get: (createAtValue) => moment(createAtValue).format('MM DD, YYYY [at] hh:mm a'),
     }
 
+},
+{
+    toJSON: {
+        getters: true
+    }
 });
 
 const Thought = model('thought', thoughtSchema);
