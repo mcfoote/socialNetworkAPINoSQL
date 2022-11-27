@@ -59,7 +59,7 @@ const userController = {
         User.findOneAndDelete({_id: params.id})
         .then(userDB => {
             if(!userDB) {
-                res.status(404).json({message: 'No User with this particular ID!'});
+                res.status(404).json({message: 'Cannot find user with matching ID'});
                 return;
             }res.json(userDB);
         }).catch(err => res.status(400).json(err));
@@ -73,7 +73,7 @@ const userController = {
         .select('-__v')
         .then(userDB => {
             if (!userDB) {
-                res.status(404).json({message: 'No User with this particular ID!'});
+                res.status(404).json({message: 'Cannot find user with matching ID'});
                 return;
             }res.json(userDB);
         }).catch(err => res.json(err));
@@ -87,7 +87,7 @@ const userController = {
         .select('-__v')
         .then(userDB => {
             if(!userDB) {
-                res.status(404).json({message: 'No User with this particular ID!'});
+                res.status(404).json({message: 'Cannot find user with matching ID'});
                 return;
             }res.json(userDB);
         }).catch(err => res.status(400).json(err));
