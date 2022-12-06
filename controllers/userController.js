@@ -12,7 +12,7 @@ const userController = {
 
     getUsers(req, res) {
 
-        User.find({})
+        User.find()
         .populate({path:'thoughts', select:'-__v'})
         .populate({path:'friends', select:'-__v'})
         .select('-__v')
@@ -45,6 +45,7 @@ const userController = {
                 return;
             }res.json(userDB);
         }).catch(err => res.status(400).json(err));
+        
     },
 
     deleteUserByID({params}, res) {
